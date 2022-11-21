@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+void commonArr(int arr1[],int arr2[],int m, int n){
+    for(int i=0; i<m; i++){
+        for(int j=0; j<n; j++){
+            if(arr1[i] == arr2[j]){
+                cout << arr1[i] << " ";
+              int garbage = -1;
+              arr2[j] = garbage;
+              // ab garbage bharne se value ka vaps use nhi hoga... or ans ek dum exact aaega 
+                break;
+            }
+        }
+    }
+}
+
+int main() {
+    int m;
+    cout << "enter the size of first array : " << endl;
+    cin >> m;
+    cout << "enter the elements : " << endl;
+     int arr1[50];
+     for(int i=0; i<m; i++){
+         cin >> arr1[i];
+     }
+     
+     int n;
+     cout << "enter the size of second array : " << endl;
+    cin >> n;
+    cout << "enter the elements : " << endl;
+     int arr2[50];
+     for(int i=0; i<n; i++){
+         cin >> arr2[i];
+     }
+     
+     commonArr(arr1,arr2,m,n);
+    return 0;
+}
