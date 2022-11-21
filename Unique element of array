@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+int uniqueArr(int arr[], int n);
+int main()
+{
+    int arr[50];
+    int n;
+    cout << "enter the size of array : " << endl;
+    cin >> n;
+    cout << "enter the elements of array : " << endl;
+    for(int i=0; i<n; i++) {
+        cin >> arr[i];
+    }
+    uniqueArr(arr,n);
+    cout << uniqueArr(arr,n);
+    return 0;
+}
+int uniqueArr(int arr[], int n)
+{
+    int ans = 0;
+    for(int i=0; i<n; i++) {
+        ans = ans^arr[i];
+      
+      // XOR (^) functioning = 0^1 = 1; 1^1 = 0; 0^0 = 0 { diffrent inputs pr true(1) hota or same input pr false(0) }
+      //to yaha pr ans ko (0) rkha h or arr[i] se XOR krne pr arr[i] hi return hoga
+
+    }
+    return ans;
+}
+
+//*** same prog with no return type ans with parameter ***//
+
+// #include <iostream>
+// using namespace std;
+// void uniqueArr(int arr[], int n);
+// int main()
+// {
+//     int arr[50];
+//     int n;
+//     cout << "enter the size of array : " << endl;
+//     cin >> n;
+//     cout << "enter the elements of array : " << endl;
+//     for(int i=0; i<n; i++) {
+//         cin >> arr[i];
+//     }
+//     uniqueArr(arr,n);
+//     return 0;
+// }
+// void uniqueArr(int arr[], int n)
+// {
+//     int ans = 0;
+//     for(int i=0; i<n; i++) {
+//         ans = ans^arr[i];
+//     }
+//   cout << ans;
+// }
