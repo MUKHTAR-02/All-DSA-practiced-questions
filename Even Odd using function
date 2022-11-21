@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+/* int isEven(int a);   
+   agr int bhi rkha to chal jaiga prog */
+bool isEven(int a);
+
+int main(){
+    // bool true = 0,false = 1;
+    int a;
+    cout << "enter the value of a : " ;
+    cin >> a;
+    isEven(a);  //fun calling 
+    if(isEven(a)){
+        cout << "number is odd" << endl;
+    }
+    else{
+        cout << "number is even" << endl;
+    }
+}
+// int isEven(int a){
+    bool isEven(int a){    
+    if(a&1){ //odd
+        return 1;
+    }
+    else //even
+    return 0;
+}
