@@ -1,0 +1,38 @@
+#include <iostream>
+ using namespace std;
+ void pairSum(int arr[], int n, int sum){
+     cout << "array" << endl;
+     for(int i=0; i<n; i++){
+         cout << arr[i] << " ";
+     }
+     cout << endl;
+     cout << "pair sum : " << endl;
+     int count = 0;
+    for(int i=0; i<n-1; i++){
+        for(int j=i+1; j<n; j++){
+            if((arr[i] + arr[j]) == sum){
+                cout << arr[i] << " " << arr[j] << endl;
+                count++;
+            }
+        }
+    }
+    if(count == 0){
+        cout << "no pair found" << endl;
+    }
+ }
+int main() {
+    // Write C++ code here
+    int arr[50];
+    int n;
+    cout << "enter the size : ";
+    cin >> n;
+    cout<< "enter the elements of array : " << endl;
+    for(int i=0; i<n; i++){
+        cin >> arr[i];
+    }
+    int sum;
+    cout << "enter the value of pair sum : " ;
+    cin >> sum;
+    pairSum(arr, n, sum);
+    return 0;
+}
