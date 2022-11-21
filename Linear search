@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+int main() {
+  // PRINTING ARRAY
+  int n;
+  int arr[5] = {10, 15, 5, 20, 25};
+  for (int i = 0; i < 5; i++) {
+    cout << " " << arr[i];
+  }
+  cout << endl;
+  // LINEAR SEARCH LOGIC
+
+  // *** string se unlock ka prog bnana hai ***
+
+  // char yes,data = 'yes';
+  // cout<<"enter 1 to continue or enter other than 1 to exit ";
+
+  int a, data = 0;
+  cout << "enter yes to continue or enter N to exit ";
+  cin >> data;
+  if (data == 1) {
+    int key, flag = 0;
+    cout << "enter the number to be search :" << endl;
+    cin >> key;
+    for (int i = 0; i < 5; i++) {
+      if (arr[i] == key) {
+        cout << "found on position :" << i;
+        flag++;
+      }
+    }
+    if (flag != 1) {
+      cout << "Enter the correct number";
+    }
+
+    cout << endl;
+    return main();
+  } else {
+    cout << "exit succesfully ";
+    return 0;
+  }
+}
