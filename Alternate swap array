@@ -1,0 +1,38 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+
+int printArray(int arr[], int n){
+    cout << "print function speaking" << endl;
+    for(int i=0; i<n; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+  return 0;
+}
+
+void alternateSwap(int arr[], int n){
+ // for(int i=0; i<n; i+=2)   dono work krenge`
+    for(int i=0; i<n-1; i+=2){
+        swap(arr[i],arr[i+1]);
+        // i++;
+    }
+    printArray(arr, n);
+    
+}
+
+int main() 
+{ 
+    int arr[50],n;
+    cout << "enter the size of array : " << endl;
+    cin >> n;
+    cout << "enter the elements : ";
+    for(int i=0; i<n; i++){
+    cin >> arr[i];
+    }
+    // hmesha dyan rkho ki array ki value get hmesha main function m se hi krna  nhi to vo dusre function k liye utilize nhi ho paigi agr main m nhi get kri to
+    // agr pure prog m ek hi array se kam chala rhe to main m dalo value... nhi to dusre functions us value ko use nhi kr painge 
+    printArray(arr,n);
+    alternateSwap(arr,n);
+    // printArray(arr,n);
+    return 0;
+}
