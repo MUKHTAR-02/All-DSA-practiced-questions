@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+// void swap(int *x, int *y);
+
+int swap(int x, int y)
+{
+    
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+    cout << "num1 = " << x << endl;
+    cout << "num2 = " << y << endl;
+    
+    return 0;
+
+}
+
+int main()
+{
+
+    int a,b,c,d;
+    cout << "enter the value of num1 and num2 : " ;
+    cin >> a >> b;
+    swap(a,b);
+     
+    cout << "enter the value of num1 and num2 : " ;
+    cin >> c >> d;
+    swap(c,d);
+        
+    return 0;
+}
