@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int main() {
+  int n = 7, arr[7] = {9, 10, 25, 30, 40, 45, 70};
+  for (int i = 0; i < n; i++) {
+    cout << arr[i] << " " << endl;
+  }
+  int key;
+  cout << "enter the value to be search :";
+  cin >> key;
+  // binary search prog;
+  int lb = 0, ub = n - 1, mid = (lb + ub) / 2;
+  if (key == arr[mid]) {
+    cout << "found directly heh too easy";
+  } else {
+    while (lb < ub && arr[mid] != key) {
+      if (key < arr[mid]) {
+        ub = mid - 1;
+      } else
+        lb = mid + 1;
+      mid = (ub + lb) / 2;
+      if (key == arr[mid]) {
+        break;
+      }
+    }
+    if (arr[mid] == key) {
+      cout << "data found " ;//position chapna h
+    } else
+      cout << "enter the correct number";
+  }
+  return 0;
+}
