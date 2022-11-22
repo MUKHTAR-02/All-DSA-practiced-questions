@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+
+int binarySearch(int arr[], int s, int e, int key){ 
+
+        int start = s;
+        int end = e;
+        int mid = start + (end - start)/2;
+        while(start <= end){
+            if(arr[mid] == key){
+                return mid;
+            }
+            else if(key < arr[mid]){
+                end = mid - 1;
+            }
+            else{
+                start = mid + 1;
+            }
+            mid = start + (end - start)/2;
+        }
+}
+
+int getPivot(int arr[], int n){
+    
+    int s = 0, e = n-1;
+    int mid = s + (e-s)/2;
+    cout << "start element " << arr[s] << endl;
+    cout << "last element " << arr[e] << endl;
+    cout << "mid element " << arr[mid] << endl;
+    cout << endl;
+    
+    while(s<e){
+
+    if(arr[mid] >= arr[0]){
+        s = mid + 1; 
+       }
+       else{
+        e = mid;
+       }
+       mid = s + (e-s)/2;
+    }
+    return s;
+}
+
+int getKey(int arr[],int n, int key,int Piv){
+    
+    if(arr[Piv] <= key && key <= arr[n-1] ){
+        int s = Piv;
+        int e = n-1;
+        cout << "inside 2nd line " << endl;
+        return binarySearch(arr,s,e,key);
+      }
+    else{
+        int s = 0;
+        int e = Piv-1;
+        int mid = s + (e-s)/2;
+        cout << "indide 1st line condition " << endl;
+        return binarySearch(arr,s,e,key);
+        }
+    }
+
+int main() {
+    int key;
+    int n = 5;
+    int arr[] = {7,9,1,2,3};
+    cout << "array : ";
+    for(int i=0; i<n; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    cout << "enter the value to be search : ";
+    cin >> key;
+    
+    int Piv = getPivot(arr,n);
+    cout<<"Pivot value = " << arr[Piv] << endl; 
+    cout << "Pivot index = " << Piv << endl;
+    
+    cout << endl;
+    int ans = getKey(arr,n,key,Piv);
+    cout << "Key value = " << arr[ans] << endl; 
+    cout << "Key index = " << ans << endl;
+    
+    return 0;
+}
