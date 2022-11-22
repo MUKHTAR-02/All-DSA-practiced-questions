@@ -32,7 +32,6 @@ int painter(int arr[], int n){
         if(isPossible(arr,n,mid)){
             ans = mid;
             e = mid - 1;
-            cout << "prev : " << ans << endl;
         }
         else{
             s = s + 1;
