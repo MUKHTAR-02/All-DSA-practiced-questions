@@ -1,0 +1,51 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+bool isPossible(int arr[], int n, int mid){
+    int blockSum = 0;
+    int m = 1;
+    for(int i=0; i<n; i++){
+        if(blockSum+arr[i] <= mid){
+            blockSum += arr[i];
+        }
+        else{
+            m++;
+            if(m > 2 || mid < arr[i]){
+                return false;
+            }
+            else{
+                blockSum = arr[i];
+            }
+        }
+    }
+    return true;
+}
+int painter(int arr[], int n){
+    int s;
+    int ans = -1;
+    int sum = 0;
+    for(int i=0; i<n; i++){
+        sum += arr[i];
+    }
+    int e = sum;
+    int mid = s + (e-s)/2;
+    while(s <= e){
+        if(isPossible(arr,n,mid)){
+            ans = mid;
+            e = mid - 1;
+            cout << "prev : " << ans << endl;
+        }
+        else{
+            s = s + 1;
+        }
+        mid = s + (e-s)/2;
+    }
+    return ans;
+}
+int main() {
+        int arr[50] = {5,5,5,5};
+        int n = 4;
+        int ans = painter(arr,n);
+        cout << "Ans = " << ans;
+    return 0;
+}
