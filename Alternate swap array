@@ -2,7 +2,6 @@
 using namespace std; 
 
 int printArray(int arr[], int n){
-    cout << "print function speaking" << endl;
     for(int i=0; i<n; i++){
         cout << arr[i] << " ";
     }
@@ -16,6 +15,7 @@ void alternateSwap(int arr[], int n){
         swap(arr[i],arr[i+1]);
         // i++;
     }
+  cout << "Array after alternate swap : " << endl;
     printArray(arr, n);
     
 }
@@ -31,6 +31,7 @@ int main()
     }
     // hmesha dyan rkho ki array ki value get hmesha main function m se hi krna  nhi to vo dusre function k liye utilize nhi ho paigi agr main m nhi get kri to
     // agr pure prog m ek hi array se kam chala rhe to main m dalo value... nhi to dusre functions us value ko use nhi kr painge 
+  cout << "Array before alternate swap : " << endl;
     printArray(arr,n);
     alternateSwap(arr,n);
     // printArray(arr,n);
