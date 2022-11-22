@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+int rootNum(int num){
+    int ans;
+    int s = 0, e = num;
+    int mid = s + (e-s)/2;
+    while(s<=e){  // binary search chala di
+        int square = mid*mid;
+        if(square == num){
+            // cout << "flag 1 " << endl;
+            return mid;
+        }
+        else if(num < square){
+            // cout << "flag 2 " << endl;
+            e = mid - 1;
+        }
+        else{
+            // cout << "flag 3 " << endl;
+            s = mid + 1;
+            ans = mid;
+        }
+        mid = s + (e-s)/2;
+    }
+    return ans;
+}
+    double exactSol(int num, int decimal, int tempSol){
+        double factor = 1;
+        double ans = tempSol;
+        for(int i=0 ; i<decimal ; i++){
+            factor = factor/10;
+            for(double j=ans ; j*j<num ; j = j+factor){
+                cout << ans << endl;
+              ans = j;
+              // cout << ans << endl;
+            }
+        }
+        return ans;
+}
+int main() {
+    int num;
+    cout << "enter the squared number : ";
+    cin >> num;
+    int tempSol = rootNum(num);
+    // cout << tempSol << endl;
+    int decimal = 3;
+    cout << "ans is : " << exactSol(num, decimal, tempSol);
+    return 0;
+}
