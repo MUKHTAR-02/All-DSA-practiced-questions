@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int peakVal(int arr[],int n){
+    int s = 0, e = n-1;
+    int mid = s + (e-s)/2;
+    cout << "start element " << arr[s] << endl;
+    cout << "last element " << arr[e] << endl;
+    cout << "mid element " << arr[mid] << endl;
+
+    while(s<e){
+  
+    if(arr[mid] < arr[mid + 1]){
+        s = mid + 1; 
+       }
+       else{
+        e = mid;
+       }
+       mid = s + (e-s)/2;
+    }
+    return s;
+}
+
+int main() {
+    int n = 7;
+    int arr[] = {0,8,6,5,2,1,0};
+    cout << "array : ";
+    for(int i=0; i<n; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    int ans = peakVal(arr,n);
+    cout << "peak value = " << arr[ans] << endl; 
+    
+    return 0;
+}
