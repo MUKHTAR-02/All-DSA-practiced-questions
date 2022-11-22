@@ -1,1 +1,37 @@
-..
+#include <iostream>
+using namespace std;
+
+int getPivot(int arr[],int n){
+    int s = 0, e = n-1;
+    int mid = s + (e-s)/2;
+    cout << "start element " << arr[s] << endl;
+    cout << "last element " << arr[e] << endl;
+    cout << "mid element " << arr[mid] << endl;
+
+    while(s<e){
+  
+    if(arr[0] <= arr[mid]){
+        s = mid + 1; 
+       }
+       else{
+        e = mid;
+       }
+       mid = s + (e-s)/2;
+    }
+    return s;
+}
+
+int main() {
+    int n = 7;
+    int arr[] = {7,8,9,10,3,4,5};
+    cout << "array : ";
+    for(int i=0; i<n; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    int ans = getPivot(arr,n);
+    cout << "index = " << ans << endl;
+    cout << "Pivot value = " << arr[ans] << endl; 
+    
+    return 0;
+}
