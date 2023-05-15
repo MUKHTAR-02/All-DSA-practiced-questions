@@ -1,1 +1,31 @@
-// code
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+void selectionSort(int arr[], int n){
+    for(int i=0; i<n-1; i++){
+        int min = i;
+        for(int j=i+1; j<n; j++){
+            if(arr[min] > arr[j]){
+                // yaha pr swap nhi krna hai bubble sort mai hota ye kam
+                // pura array check hoga then jo final smallest element aya hai vo arr[i] se swap hoga
+                min = j;
+            }
+        }
+        swap(arr[min], arr[i]);
+    }
+    cout << "sorted array : " << endl;
+    for(int i=0; i<n; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+
+int main() {
+    int n = 6;
+    int arr[n] = {10,1,7,6,14,9};
+    selectionSort(arr, n);
+    
+    return 0;
+}
