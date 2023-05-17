@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+void insertionSort(int arr[], int n){
+    for(int i=1; i<n; i++){     //i=1 isliye quki pehle element yani arr[0] ko apn direct array m dal rhe ab isse compare krenge
+        int temp = arr[i];      //backup liya arr[i] ka quki badme iski value bdalne wali hai
+        int j=i-1;      //j ka loop reverse mai chalega
+        while(j>=0){    //zero tk
+            if(arr[j] > temp){  
+                arr[j+1] = arr[j];  //yaha pr manipulate ho gai arr[i] ki value becoz, 
+                                    // arr[j+1] <is equal to> arr[i]...
+            }
+            else{
+                break;     //else the loop is already sorted 
+            }
+            
+            j--;
+        }
+
+        cout << "operations : " << i << endl;
+        for(int i=0; i<n; i++){
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+        cout << "Iteration completed !" << endl; 
+        cout << endl;
+        arr[j+1] = temp;
+    }
+    cout << "After sorting :" << endl;
+    for(int i=0; i<n; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int n = 6;
+    int arr[n] = {6, 5, 4, 3, 2, 1};    //worst case!
+    cout << "before sortin :" << endl;
+    for(int i=0; i<n; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    cout << endl;
+    
+    insertionSort(arr, n);
+
+    return 0;
+}
