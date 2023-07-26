@@ -1,0 +1,56 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+void mergeArray(int arr1[], int a, int arr2[], int b, int arr3[], int n) {
+    int i = 0, j = 0, k = 0;    //while loop k bhar h (iska mtlb value jo bhi update hogi niche vo reset nhi hogi) ye chiz copy krne m madad gar sabit hogi...
+    while(i < a && j < b){  //dono pointer loop m hona chahiye ek bhi khtm hua to while loop nhi chalega...
+        if(arr1[i] < arr2[j]) {
+            // arr3[k++] = arr1[i++] (short-cut)
+            arr3[k] = arr1[i];
+            k++;
+            i++;
+        }
+        else{
+            arr3[k] = arr2[j];
+            k++;
+            j++;
+        }
+    }
+    
+    cout << "i ki value before copy :" << i << endl;
+    cout << "j ki value before copy :" << j << endl;
+    cout << "k ki value before copy :" << k << endl;
+    
+    // remaining elements of arr1 ko copy kiya
+    while(i<a) {
+        arr3[k] = arr1[i];
+        k++;
+        i++;
+    }
+    
+    // remaining elements of arr2 ko copy kiya
+    while(j<b) {
+        arr3[k] = arr2[j];
+        k++;
+        j++;
+    }
+}
+
+void print(int ans[], int n) {
+    for(int i=0; i<n; i++){
+        cout << ans[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int arr1[5] = {10,30,50,70,90};
+    int arr2[3] = {20,40,60};
+    int n = 8;
+    int arr3[n] = {0};
+    
+    mergeArray(arr1, 5, arr2, 3, arr3, n);
+    print(arr3, n);
+    return 0;
+}
