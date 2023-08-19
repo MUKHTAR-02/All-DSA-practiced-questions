@@ -1,0 +1,34 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void solution(vector<int> vec, int k) {
+    int size = vec.size();
+    vector<int> tempVec(size);  // temp vec create kiya
+    for(int i=0; i<size; i++){
+        tempVec[(i+k) % size] = vec[i]; // us temp vec ka index nikala "k" ke according then original vec ki value dali 
+    }
+    vec = tempVec;  // copy kiya
+    for(int i:vec) {
+        cout << i << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    vector<int> vec;
+
+    vec.push_back(1);
+    vec.push_back(2);
+    vec.push_back(3);
+    vec.push_back(4);
+    vec.push_back(5);
+    vec.push_back(6);
+    vec.push_back(7);
+
+    int k = 3;
+    solution(vec, k);
+
+    return 0;
+}
