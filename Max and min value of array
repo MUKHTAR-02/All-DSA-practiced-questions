@@ -1,46 +1,46 @@
-#include<iostream>
+// Online C++ compiler to run C++ program online
+#include <iostream>
 using namespace std;
-// void array(int n, int arr[]);
-void array(int arr[],int n){
-    cout << "inside funtion" << endl;
-    for(int i=0; i<n; i++){
+
+void printArray(int arr[], int n) {
+    for(int i=0; i<n; i++) {
+        cout << arr[i] << " ";
+    }cout << endl;
+}
+
+void minArray(int arr[], int n) {
+    int min = arr[0];
+    for(int i=1; i<n; i++) {
+        if(min > arr[i]) {
+            min = arr[i];
+        }
+    }
+    cout << "Min element = " << min << endl;
+}
+
+void maxArray(int arr[], int n) {
+    int max = arr[0];
+    for(int i=1; i<n; i++) {
+        if(max < arr[i]) {
+            max = arr[i];
+        }
+    }
+    cout << "Max element = " << max << endl;
+}
+
+int main() {
+    int n;
+    cout << "enter size of array: ";
+    cin >> n;
+    int arr[n];
+    cout << "enter elements of array: " << endl;
+    for(int i=0; i<n; i++) {
         cin >> arr[i];
     }
-    cout << endl;
-    cout << "array is : " << endl;
-    for(int i=0; i<n; i++){
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    cout << "Your Array: " << endl;
+    printArray(arr, n);
+    minArray(arr, n);
+    maxArray(arr, n);
     
-    //for maximum and minimum
-    int min = 0;
-    for(int i=1; i<n; i++){
-        if(arr[min] > arr[i]){
-            arr[min] = arr[i];
-            min = i;
-        }
-    }
-    cout << "found the minimum value : " << arr[min];
-    cout << "\n position : " << min << endl;
-
-    int max = 0;
-    for(int i=1; i<n; i++){
-        if(arr[max] < arr[i]){
-            arr[max] = arr[i];
-            max = i;
-        }
-    }
-    cout << "found the maximum value : " << arr[max];
-    cout << "\n position : " << max << endl;
-    
-}
-int main()
-{
-    cout << "main called" << endl;
-    int n;
-    cout << "enter the size of array : ";
-    cin >> n;
-    int arr[100];
-    array(arr,n);
+    return 0;
 }
